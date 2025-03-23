@@ -1,68 +1,72 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
 
+.body {
+direction: rtl;
 }
 
 .main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(1.png);
+    background-color: #fff; /* צבע רקע רגיל לשאר הדף */
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between; /* יצירת רווחים שווים בין האלמנטים */
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(1.png);
     background-position: center;
     background-size: cover;
-    height: 12vh;
+    position: fixed; /* זה ישאיר את ה-navbar בחלק העליון */
+    top: 0; /* יישאר למעלה */
+    left: 0;
+    z-index: 100; /* נוודא שה-navbar מעל לכל */
 }
 
-.navbar{
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+    position: sticky;
+    top: 0px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end; /* דואג שהרשימה תהיה בקצה הימני */
     width: 100%;
-    height: 25px;
-    margin: auto;
+}
+
+.menu ul {
     display: flex;
-justify-content: center;
-align-items: center;
-padding-top: 20px;
-
-}
-
-.icon{
-    width: 400px;
-    float: left;
-    height: 70px;
-}
-
-
-.logo{
-max-width: 100%;
-height: 15vh;
-object-fit: contain;
-}
-
-
-.img {
-height: 20px;
-position: relative;
-}
-
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-}
-
-ul{
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-ul li{
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     list-style: none;
-    margin-left: 62px;
-    margin-top: 35px;
-    font-size: 20px;
 }
 
-ul li a{
+ul li {
+    list-style: none;
+    font-size: 15px;
+    flex: 1;
+    text-align: center;
+}
+
+ul li a {
     text-decoration: none;
     color: #fff;
     font-family: Arial;
@@ -70,39 +74,520 @@ ul li a{
     transition: 0.3s ease-in-out;
 }
 
-
-    .navbar a.highlight {
-        font-size: 30px; 
-        font-weight: bolder; 
-        color: #fff; 
+.navbar a.highlight {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fff;
 }
 
-ul li a:hover{
-    color:#b08931 ;
+ul li a:hover {
+    color: #b08931;
 }
 
-.navbar a.highlight:hover{
-    color:#b08931 ; 
+.navbar a.highlight:hover {
+    color: #b08931;
 }
 
-.content{
-    list-style: none;
-    margin-left: 40px;
-    margin-top: 320px;
+.content {
+    text-align: center;
+    margin-top: 70px; /* זה מוסיף רווח שיתקן את הבעיה וימקם את הטקסט נכון אחרי ה-navbar */
     font-size: 20px;
     color: #000000;
-    font-family:  a;
+    position: relative;
+    z-index: 90; /* לוודא שהטקסט יהיה מעל התמונה */
 }
 
-.content h1{
-    color:#b08931 ; 
+.content h1 {
+    color: #b08931;
 }
 
-.container{
-    list-style: none;
-    margin-left: 40px;
-    margin-top: 500px;
-    font-size: 20px;
+.container {
+   display: flex; /* משתמש ב-flexbox */
+   justify-content: flex-start; /* מתחיל את היישור מההתחלה */
+   margin-top: 20px;
+   margin-right: 30px;
+   margin-left: -30px; /* הזזת כל ה-container שמאלה */
+   font-size: 20px;
+   color: #000000;
+   direction: rtl; /* כיוון הטקסט מימין לשמאל */
+   width: 100%; /* רוחב 100% של ההורה */
+   box-sizing: border-box; /* כולל את ה-padding בתוך חישוב הרוחב */
+}
+
+.container .left-paragraph,
+.container .right-paragraph {
+   max-width: 48%; /* מגביל את רוחב כל פסקה */
+   padding: 5px; /* צמצמתי את הרווח הפנימי */
+}
+
+.left-paragraph {
+   text-align: right; /* יישור הטקסט לימין עבור הפסקה השמאלית */
+   margin-left: 0; /* צמצום המרווח משמאל */
+   margin-right: 6px; /* רווח קטן של 6px בין הפסקאות */
+}
+
+.right-paragraph {
+   text-align: right; /* יישור הטקסט לימין עבור הפסקה הימנית */
+   margin-right: 0; /* צמצום המרווח מימין */
+}
+
+
+/* סגנונות כללים */
+.squares-container {
+    display: flex;
+    justify-content: space-evenly; /* סידור הריבועים בשורה */
+    gap: 10px; /* מרווח בין הריבועים */
+    flex-wrap: wrap; /* אם יש הרבה ריבועים, הם יעברו לשורה הבאה */
+    margin-top: 20px;
+    text-align: center; /* יישור הטקסט במרכז */
+}
+
+.square {
+    position: relative;
+    width: 160px; /* רוחב הריבוע */
+    height: 160px; /* גובה הריבוע */
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center; /* מרכז את התמונה */
+    justify-content: center; /* ממקם את התמונה במרכז הריבוע */
+    flex-direction: column; /* זה מבטיח שהריבוע ישמור על סדר אנכי */
+}
+
+.square img {
+    width: 100%;
+    height: 100%; /* התמונה תמלא את הריבוע */
+    object-fit: cover;
+}
+
+/* הסגנון לטקסט שנמצא מתחת */
+.text {
+    text-align: center;
+    margin-top: 10px; /* רווח קטן בין התמונה לטקסט */
+}
+
+.title {
+    font-size: 16px; /* גודל כותרת */
+    font-weight: bold;
+}
+
+.description {
+    font-size: 12px; /* גודל טקסט קטן */
+    font-weight: normal;
+    color: #555;
+    margin-top: 5px; /* רווח קטן בין הטקסטים */
+}
+
+/* סגנון לציפה והקלקה */
+.square:hover {
+    transform: scale(1.05); /* הגדלת הריבוע בזמן הציפה */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* הצללה יותר חזקה */
+}
+
+.square:active {
+    transform: scale(0.98); /* הקטנה בזמן הלחיצה */
+}
+
+/* שיבוץ הטקסט תחת כל קוביה */
+.square-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* סגנונות כלליים */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* סגנונות עבור כותרת מתחת לקוביות */
+.extra-text {
+    text-align: center; /* ממקם את הכותרת במרכז */
+    margin-top: 40px; /* רווח עליון מהקוביות */
+    padding: 20px; /* רווח פנימי */
+}
+
+/* סגנון הכותרת */
+.title {
+    font-size: 24px;
+    color: #b08931; /* צבע כחול */
+    margin-bottom: 20px; /* רווח מתחת לכותרת */
+}
+
+/* סגנונות עבור הטקסט שמופיע בשתי פסקאות */
+.text-container {
+    display: flex;
+    justify-content: space-between; /* יישור בין הפסקאות בצורה של רווחים שווים */
+    align-items: center; /* ממרכז את הפסקאות */
+    width: 100%; /* רוחב מלא */
+}
+
+/* סגנון לפסקה השמאלית */
+.left-paragraph {
+    font-size: 16px;
     color: #000000;
-    font-family:  a;
+    text-align: right; /* יישור הטקסט לימין */
+    width: 45%; /* רוחב של 45% */
+    line-height: 1.6; /* רווח בין שורות */
+}
+
+/* סגנון לפסקה הימנית */
+.right-paragraph {
+    font-size: 16px;
+    color: #000000;
+    text-align: left; /* יישור הטקסט לשמאל */
+    width: 45%; /* רוחב של 45% */
+    line-height: 1.6; /* רווח בין שורות */
+}
+
+
+/* עמודים משניים */
+/* הגדרת עיצובים לדפים המשניים */
+.secondary-page .container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    margin-top: 90px; /* נותן רווח למעלה מתחת ל-navbar */
+    padding: 20px;
+}
+
+/* סגנון ל-navbar */
+.secondary-page .navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    direction: ltr; /* כיוון אנגלי בסרגל העליון */
+}
+
+.secondary-page .navbar .icon img {
+    height: 250px;
+}
+
+.navbar .menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.secondary-page .navbar .menu ul li {
+    margin-left: 20px;
+}
+
+.secondary-page .navbar .menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.secondary-page .navbar .menu ul li a:hover {
+    color: #b08931; /* שינוי צבע לכחול בעת ריחוף */
+}
+
+/* מבנה של התמונה והכותרת */
+.secondary-page .header {
+    display: flex;
+    align-items: flex-start; /* מיישר את התמונה והכותרת למעלה */
+    margin-bottom: 30px; /* רווח בין הכותרת והפסקה לשאר התוכן */
+}
+
+.secondary-page .image {
+    margin-right: 20px; /* מרווח בין התמונה לכותרת */
+    flex: 1;
+}
+
+.secondary-page .image img {
+    width: 250px; /* גודל התמונה בצד שמאל */
+    height: 250px; /* גובה התמונה */
+    object-fit: cover; /* לוודא שהתמונה תכסה את הריבוע */
+}
+
+.secondary-page .text {
+    flex: 2;
+    margin-left: 20px;
+    max-width: 60%; /* מונע מהטקסט להימתח יותר מדי */
+}
+
+.secondary-page .text h1 {
+    color: #b08931; /* צבע הכותרת */
+    font-size: 36px; /* גודל הכותרת */
+    margin-bottom: 10px; /* רווח קטן מתחת לכותרת */
+}
+
+.secondary-page .text p {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 20px; /* רווח מתחת לפסקה */
+}
+
+/* סגנון לטקסט הכללי לאחר הפסקה */
+.secondary-page .main-content {
+    font-size: 18px;
+    color: #000;
+    margin-top: 30px; /* רווח בין הפסקה לתוכן הכללי */
+    line-height: 1.6;
+}
+
+/* קרדיט למטה */
+.secondary-page footer {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 50px; /* רווח בין התוכן לקרדיט */
+}
+
+/* כללי */
+.secondary-page .body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl; /* כיוון הטקסט מימין לשמאל */
+}
+
+/* עיצוב התמונה והכותרת (בצד שמאל התמונה ובצד ימין הכותרת והפסקה) */
+.secondary-page .container {
+    display: flex;
+    flex-direction: row-reverse; /* התמונה בצד שמאל והטקסט בצד ימין */
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.secondary-page .image {
+    margin-right: 20px;
+    flex: 1;
+}
+
+.secondary-page .text {
+    flex: 2;
+}
+
+/* סגנון התמונה */
+.secondary-page .image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* סגנון כותרת והפסקה */
+.secondary-page .text h1 {
+    color: #b08931;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.secondary-page .text p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px; /* רווח מתחת לפסקה */
+}
+
+/* עיצוב התוכן הארוך */
+.secondary-page .main-content {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* קרדיט בתחתית הדף */
+.secondary-page footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* כפתורים בסרגל */
+.secondary-page .navbar .menu ul li a:hover {
+    color: #b08931; /* שינוי צבע לכחול בעת ריחוף */
+}
+
+
+<!-- קובץ style.css 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* קישור לאתר המכינל */
+.mechina-link {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #b08931; /* צבע טקסט רגיל */
+    text-decoration: none;
+    border: 2px solid rgba(176, 137, 49, 0.7); /* מסגרת שקופה יותר */
+    border-radius: 35px; /* מסגרת מעוגלת יותר */
+    transition: all 0.2s ease-in-out;
+}
+
+.mechina-link:hover {
+    background-color: #b08931; /* רקע בצבע הטקסט */
+    color: white; /* טקסט לבן */
+    transform: scale(0.98); /* התכווצות ממש קטנה */
+    border: 2px solid rgba(176, 137, 49, 0.5); /* המסגרת תהיה עוד יותר שקופה */
+}
+
+
+.footer-image {
+    width: 100vw; /* התמונה תתפרס על כל רוחב המסך */
+    height: 600px; /* מגדיל את הגובה כדי לתת יותר נפח */
+    background-image: url('רקע\ נופלים\ אשלים\ copy.png'); /* נתיב לתמונה */
+    background-size: cover; /* מכסה את כל האזור בלי להשאיר רווחים */
+    background-position: center; /* מוודא שהתמונה ממורכזת */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 80px; /* זה מה שהזז את התמונה למטה ב-20 פיקסלים */
+}
+
+.footer-text {
+    color: white; /* צבע טקסט */
+    font-size: 36px; /* גודל טקסט מוגדל */
+    font-weight: bold; /* הדגשה של הטקסט */
+    text-align: center; /* מיישר את הטקסט במרכז */
+    position: absolute; /* מאפשר למקם את הטקסט במיקום מדויק */
+    top: 50%; /* ממקם את הטקסט באמצע, אפשר לשנות את ה-top בהתאם למיקום הרצוי */
+    left: 50%;
+    transform: translate(-50%, -50%); /* מוודא שהטקסט ממוקם במרכז המסך */
+    text-shadow: 3px 3px 6px black; /* קווי מתאר שחורים עדינים */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* גובה הדף המלא */
+    background-image: url('images.jpeg'); /* נתיב לתמונה */
+    background-size: cover; /* מכסה את כל האזור בלי להשאיר רווחים */
+    background-position: center; /* ממקם את התמונה במרכז */
+    background-repeat: no-repeat; /* מונע חזרת התמונה */
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-image: url('רקע.אתר.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    z-index: -1;
+    position: relative;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* משנה את הסרגל העליון כך שיהיה אנכי */
+        text-align: center;
+    }
+
+    .menu ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* התפריט יוצג כשורה אחת בטלפון */
+    }
+
+    .square-wrapper {
+        width: 90%; /* הקוביות יתפסו יותר מקום במסכים קטנים */
+        margin: 10px auto;
+    }
+
+    .footer-image {
+        height: 250px; /* מקטין את התמונה כדי שתתאים למסכים קטנים */
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 24px; /* מכווץ כותרות גדולות בטלפונים */
+    }
+}
+
+/* מניעת גלילה אופקית רק לגוף הדף */
+body, html {
+    max-width: 100%;
+    overflow-x: hidden; /* מונע גלילה אופקית */
+}
+
+/* החלת הרקע הראשי של האתר בלי להשפיע על תמונות פנימיות */
+body {
+    background-image: url('רקע.אתר.png'); /* נתיב לתמונה */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* תמונות רגילות לא ייפגעו */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* אבל נוודא שהתמונות בתוך הריבועים לא ישתנו */
+.squares-container img, .header img {
+    max-width: initial;
+    height: initial;
+}
+
+
+
+
+
+/* הוספת מרווח לדפים מתחת לנווט */
+body {
+    padding-top: 60px;
 }
